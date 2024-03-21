@@ -1,5 +1,62 @@
 from time import *
 from random import *
+from math import *
+def titulo_materia(msg):
+    print('\033[1;33m_' * 50)
+    print(msg)
+    print('\033[1;33m_\033[m')
+
+
+def matematica():
+    #Aqui vai sorteia as questoes
+    for c in range(1,5+1):
+        sorteio_da_questoes =  5 #randint(1,5)
+        sleep(1)
+        if sorteio_da_questoes == 1: 
+            titulo_materia('ADIÇÃO')
+            num1.append(randint(0,100))
+            num2.append(randint(0,100))
+            resultado = (sum(num1) + sum(num2))
+            resposta_matematico = int(input(f'{sum(num1)} + {sum(num2)} = '))
+            if resposta_matematico == resultado:
+                contador+=1
+        elif sorteio_da_questoes == 2:
+            titulo_materia('MULTIPLICAÇÃO')
+            num1.append(randint(0,100))
+            num2.append(randint(0,100))
+            resultado = (sum(num1) * sum(num2))            
+            resposta_matematico = int(input(f'{sum(num1)} x {sum(num2)} = '))
+            if resposta_matematico == resultado:
+                contador+=1
+        elif sorteio_da_questoes == 3:
+            titulo_materia('DIVISÃO')
+            num1.append(randint(1,100))
+            num2.append(randint(1,100))
+            resultado = sum(num1) / sum(num2)
+            resposta_matematico = int(input(f'{sum(num1)} ÷ {sum(num2)} = '))
+            if resposta_matematico == resultado:
+                contador+=1
+        elif sorteio_da_questoes == 4:
+            titulo_materia('SUBTRAÇÃO')
+            num1_sub = randint(0,200)
+            num2_sub = randint(0,200)
+            resultado = num1_sub - num2_sub
+            resposta_matematico = int(input(f'{num1_sub} - {num2_sub} = '))
+            if resposta_matematico == resultado:
+                contador+=1
+        elif sorteio_da_questoes == 5:
+            titulo_materia('RAIZ QUADRADA')
+            num = randint(0,1000)
+            resultado = sqrt(num)
+            resposta_matematico = float(input(f'Qual é a raiz quadrada de {num}?: '))
+            if resposta_matematico == resultado:
+                contador+=1
+        print('_' * 50)
+        num1.clear()
+        num2.clear()
+
+
+# Programa principal
 while True:
     # - A VERIFICAÇÃO DO ALUNO: ONDEM O USUARIO IRA DIGITA AS NOTA E O SCRPIT IRAR AVERIGUAR.
     media = 0
@@ -127,7 +184,6 @@ while True:
                 print('\033[1;36m▃\033[m'*50)
                 if resposta5 in 'Bb':
                     contador+= 1
-                vez_material = 0
                 num1 = []
                 num2  = []
                 sleep(3)
@@ -135,34 +191,7 @@ while True:
                 sleep(2)
                 # - O SISTEMA DE PERGUNTA DE MATEMATICA BASICA.
                 # - DIFERENTE DAS PERGUNTAS ANTERIORES, ESSA SÃO VARIAVEIS
-                for c in range(1,5+1):
-                    sleep(1)
-                    vez_material+=1
-                    if vez_material == 1 or vez_material == 2: 
-                        num1.append(randint(0,100))
-                        num2.append(randint(0,100))
-                        resultado = (sum(num1) + sum(num2))
-                        resposta_matematico = int(input(f'{sum(num1)} + {sum(num2)} = '))
-                        if resposta_matematico == resultado:
-                            contador+=1
-                    elif vez_material == 3 or vez_material == 4:
-                        num1.append(randint(0,100))
-                        num2.append(randint(0,100))
-                        resultado = (sum(num1) * sum(num2))
-                        print('_' * 50)
-                        resposta_matematico = int(input(f'{sum(num1)} x {sum(num2)} = '))
-                        if resposta_matematico == resultado:
-                            contador+=1
-                    elif vez_material > 4:
-                        num1.append(randint(0,100))
-                        num2.append(randint(0,100))
-                        resultado = sum(num1) / sum(num2)
-                        print('_' * 50)
-                        resposta_matematico = int(input(f'{sum(num1)} ÷ {sum(num2)} = '))
-                        if resposta_matematico == resultado:
-                            contador+=1
-                    num1.clear()
-                    num2.clear()
+                # - PARA MAIS DETALHES VA ATE LA EM CIMA PARA AVERIGUAR
                 sleep(3)
                 print('\033[1;34m*SISTEMA AVERIGUANDO AS RESPOSTA...\033[m')
                 sleep(4)
