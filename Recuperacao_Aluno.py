@@ -192,6 +192,7 @@ while True:
                 # - O SISTEMA DE PERGUNTA DE MATEMATICA BASICA.
                 # - DIFERENTE DAS PERGUNTAS ANTERIORES, ESSA SÃO VARIAVEIS
                 # - PARA MAIS DETALHES VA ATE LA EM CIMA PARA AVERIGUAR
+                matematica()
                 sleep(3)
                 print('\033[1;34m*SISTEMA AVERIGUANDO AS RESPOSTA...\033[m')
                 sleep(4)
