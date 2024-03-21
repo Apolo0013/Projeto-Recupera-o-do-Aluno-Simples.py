@@ -5,7 +5,7 @@ Este é um projeto em Python que simula um processo de recuperação de notas de
 ## Requisitos
 
 - Python 3.x
-- Bibliotecas: random e time
+- Bibliotecas: random, time e math
 
 ## Como Executar
 
