@@ -1,16 +1,21 @@
 from time import *
 from random import *
 from math import *
+
 def titulo_materia(msg):
     print('\033[1;33m_' * 50)
     print(msg)
     print('\033[1;33m_\033[m')
 
 
+def linha():
+    print('\033[1;36m▃\033[m' * 70)
+
+
 def matematica():
     #Aqui vai sorteia as questoes
     for c in range(1,5+1):
-        sorteio_da_questoes =  5 #randint(1,5)
+        sorteio_da_questoes = randint(1,5)
         sleep(1)
         if sorteio_da_questoes == 1: 
             titulo_materia('ADIÇÃO')
@@ -60,36 +65,38 @@ def matematica():
 while True:
     # - A VERIFICAÇÃO DO ALUNO: ONDEM O USUARIO IRA DIGITA AS NOTA E O SCRPIT IRAR AVERIGUAR.
     media = 0
+    linha()
     for notas in range(1,4+1):
         nota = float(input('DIGITE SUA {}ª NOTA: '.format(notas)))
         media+=nota
+        linha()
     # - CONTADOR DE NOTA
     contador = 0
     if media >= 24.1:
-        print('\033[1;32mPARABENS VOCÉ ESTA APROVADO\033[m')
+        print('\033[1;32mParabens!!! voce esta aprovado\033[m')
         print('MEDIA: {}'.format(media))
     elif media == 24.0:
-        print('\033[1;32mVOCE TIROU EXATAMENTE 24.0\033[m')
+        print('\033[1;32mVocê tirou extamente 24.0 pontos\033[m')
     # - CASO O ALUNO ESTEJA COM ANO ABAIXO DA MEDIA E FALTANDO MENOS DO QUE 10 PONTOS. VAI DIRETO PARA RECUPERAÇÃO.
     else:
-        print('\033[1;31mVOCE ESTA REPROVADO\033[m')
+        print('\033[1;31mVocê esta repravado. Leia a baixo.\033[m')
         recupera = (24-media)
         sleep(2)
         if recupera <= 10:
             # - TEXTO DE ORIENTAÇÃO
-            print('\033[1;33mOU SEJA VOCE ESTA EM RECUPERAÇÃO')
-            print('IREMOS LHE PASSA 5 QUESTOES DE CADA')
-            print('MATERIA, CADA UMA DELA VALER 1.0')
-            print('VAI CAIR 10 QUESTAO NO TOTAL!!!')
-            print('VAMOS COMEÇAR')
+            print('''\033[1;33m
+Parece que você está em recuperação. Vamos realizar cinco questões para cada matéria, cada uma
+delas valendo 1.0 ponto. No total, serão dez questões: cinco de História e cinco de Matemática.
+Está pronto para começar?
+''')
             print('Materias: Historia e Matematica')
             # A VARIAVEL: 'perguntar' VAI RECEBER A RESPOSTA DO USUARIO SE ELE QUER MESMO FAZER A RECUPERAÇÃO.
-            perguntar = str(input('VOCÉ DESEJA FAZER ESSA RECUPERAÇÃO?[sim[S] ou não[N]?]:\033[m ')).strip()[0]
+            perguntar = str(input('Você quer relizar esses teste ou que fica retido?[sim[S] ou não[N]?]:\033[m ')).strip()[0]
             sleep(2)
             if perguntar in 'Ss':
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 print('\033[1;32mCARREGANDO AS PERGUNTAS...\033[m')
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 sleep(1)
                 print('\033[1;33mQual evento histórico marcou o início da Primeira Guerra Mundial e em que ano ocorreu?')
                 sleep(0.5)
@@ -99,7 +106,7 @@ while True:
                 sleep(0.3)
                 print('(C) Invasão da Polônia pela Alemanha (1939)')
                 sleep(0.3)
-                print('(D) Tratado de Versalhes (1919)\033[m')
+                print('(D) Tratado de Versalhes (1919)')
                 sleep(0.2)
                 # - UM PEQUENO SISTEMA PARA GARANTIR PARA O USUARIO NÃO DIGITAR ERRADO
                 while True:
@@ -109,7 +116,7 @@ while True:
                 # - SE A RESPOSTA FOR CORRETA MAIS UM PONTO.
                 if resposta1 in 'Bb':
                     contador+= 1
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 sleep(1)
                 print('\033[1;33mQuem foi o líder da Revolução Cubana em 1959 e como isso impactou a história de Cuba?')
                 sleep(0.5)
@@ -127,7 +134,7 @@ while True:
                         break
                 if resposta2 in 'Cc':
                     contador+= 1
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 sleep(1)
                 print('\033[1;33mExplique o significado e as consequências do Tratado de Versalhes, assinado após o fim')
                 sleep(0.5)
@@ -147,7 +154,7 @@ while True:
                         break
                 if resposta3 in 'Aa':
                     contador+= 1
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 sleep(1)
                 print('\033[1;33mQual foi o papel do Movimento dos Direitos Civis nos Estados Unidos durante a década de 1960?')
                 sleep(0.5)
@@ -165,7 +172,7 @@ while True:
                         break
                 if resposta4 in 'Bb':
                     contador+= 1
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 sleep(1)
                 print('\033[1;33mDescreva o que foi o Renascimento, destacando suas principais')
                 sleep(0.5)
@@ -181,7 +188,7 @@ while True:
                     resposta5 = str(input('RESPOSTA:\033[m ')).upper().strip()[0]
                     if resposta5 in 'ABCDabcd':
                         break
-                print('\033[1;36m▃\033[m'*50)
+                linha()
                 if resposta5 in 'Bb':
                     contador+= 1
                 num1 = []
@@ -198,15 +205,15 @@ while True:
                 sleep(4)
                 resultado = (media+contador)
                 if resultado >= 24:
-                    print('\033[1;32mPARABENS VOCE FOI APROVADO!!!\033[m')
-                    print('\033[1;36m▃\033[m'*50)
+                    print('\033[1;32mParabens!!! Você conseguiu a media para passa\033[m')
+                    linha()
                 else:
-                    print('\033[1;31mREPROVADO!!!\033[m')
-                    print('\033[1;36m▃\033[m'*50)
+                    print('\033[1;31mReprovado!!!\033[m')
+                    linha()
             else:
-                print('OK, \033[1;32mREPROVADO\033[m')
-                print('\033[1;36m▃\033[m'*50)
-    repetir = str(input('SE DESEJA REPETIR ESSE PROCESSO TODO DIGITE "S" CASO ALCONTRARIO "N"')).strip()[0]
+                print('OK, \033[1;31mReprovado\033[m')
+                linha()
+    repetir = str(input('\033[1;33mQuer Repetir?: \033[m')).strip()[0]
     if repetir in 'Nn':
         break
     print('\033[1;36m▃\033[m'*50)
